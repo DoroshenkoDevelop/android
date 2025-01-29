@@ -5,8 +5,7 @@ public class Main {
         points();
         helloWorld();
         rectangle();
-        sumOfNumbers ();
-
+        sumOfNumbers();
     }
     /*Вывод имени пользователя*/
     public static void helloWorld() {
@@ -63,8 +62,36 @@ public class Main {
 
     }
 
-    public static void str () {
+    /*Напишите программу, которая принимает строку и переставляет слова в обратном порядке, используя только методы String и StringBuilder*/
+    public static void str(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        // Ввод строки
+        System.out.print("Введите строку: ");
+        String input = scanner.nextLine().trim();
+
+        // Получаем строку с перевернутыми словами
+        String reversed = reverseWords(input);
+
+        // Вывод результата
+        System.out.println("Строка с обратным порядком слов: " + reversed);
     }
 
+    // Метод для переворота слов в строке
+    public static String reverseWords(String input) {
+        StringBuilder result = new StringBuilder();
+        int end = input.length(); // Начинаем с конца строки
+
+        // Проходим по строке с конца к началу
+        for (int i = input.length() - 1; i >= 0; i--) {
+            // Если находим пробел, то добавляем слово
+            if (input.charAt(i) == ' ' || i == 0) {
+                int start = (i == 0) ? i : i + 1; // Учитываем первое слово
+                result.append(input.substring(start, end)); // Добавляем слово
+                if (i > 0) result.append(" "); // Добавляем пробел между словами
+                end = i; // Обновляем конец для следующего слова
+            }
+        }
+        return result.toString().trim(); // Убираем лишние пробелы
+    }
 }
