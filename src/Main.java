@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +7,10 @@ public class Main {
         helloWorld();
         rectangle();
         sumOfNumbers();
+        userPoint();
+        arrayMaxMin();
+        evenNotEven();
+        arrayBack();
     }
     /*Вывод имени пользователя*/
     public static void helloWorld() {
@@ -94,4 +99,90 @@ public class Main {
         }
         return result.toString().trim(); // Убираем лишние пробелы
     }
+
+    /*Lesson-5*/
+    public static void arrayInt() {
+        int[] first =  new int[10];
+        int[] second =  new int[] {1, 2, 3, 4};
+    }
+
+
+    public static void lessonFive(int[] array) {
+        int[] secondArray = new int[array.length];
+        System.out.println(Arrays.toString(array));
+        Arrays.sort(array);
+        System.out.println("Сортировка: " + Arrays.toString(array));
+        int index = Arrays.binarySearch(array, 2);
+        System.out.println("Результат: " + index);
+        System.arraycopy(array, 0, secondArray, 0, secondArray.length);
+        System.out.println("Копирование: " + Arrays.toString(secondArray));
+    }
+
+    public static void userPoint() {
+        Scanner scanner = new Scanner(System.in);
+        int[] point = new int[5];
+        int sum = 0;
+        for (int i = 0; i < point.length; i++) {
+            System.out.print("Введите число: ");
+            int input = scanner.nextInt();
+            sum += input;
+            point[i] = input;
+        }
+        System.out.println(Arrays.toString(point));
+        System.out.println("Сумма чисел: " + sum);
+    }
+    /*Lesson-5*/
+
+    /*HomeWork-5*/
+    /*1) Напишите программу, которая находит и выводит максимальное и минимальное
+    значение в массиве целых чисел. Также вычислите индекс этих элементов.*/
+    public static void arrayMaxMin() {
+        int[] array = new int[] {1, 2, 3, 4, 5, 6, 7, 8, -1};
+         int arrayMax = 0;
+         int arrayMin = 0;
+         int minIndex = 0;
+         int maxIndex = 0;
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < arrayMin) {
+                arrayMin = array[i];
+                minIndex = i;
+            }
+            if (array[i] > arrayMax) {
+                arrayMax = array[i];
+                maxIndex = i;
+            }
+        }
+        System.out.println("Число макс: " + arrayMax + ", индекс: " + minIndex);
+        System.out.println("Число мин: " + arrayMin + ", индекс: " + maxIndex);
+    }
+    /*2) Напишите программу, которая принимает массив целых чисел и подсчитывает,
+    сколько четных и сколько нечетных чисел в нем содержится.*/
+    public static void evenNotEven() {
+       // Scanner scanner = new Scanner(System.in);
+        int[] arrays = new int[] {1, 2, 3, 4, 5};
+        int even = 0;
+        int notEven = 0;
+        for (int array : arrays) {
+            if (array % 2 == 0) {
+                even++;
+            }
+            else {
+                notEven++;
+            }
+        }
+        System.out.println("Четных: " + even);
+        System.out.println("Не четных: " + notEven);
+    }
+    /*3) Напишите программу, которая принимает массив целых чисел и изменяет его порядок
+    на обратный. Выведите результат после изменения порядка.*/
+    public static void arrayBack() {
+        int[] arrayBack = new int[] {1, 2, 3, 4, 5};
+        int[] newArray = new int[arrayBack.length];
+        for (int i = 0; i < arrayBack.length; i++) {
+            newArray[arrayBack.length - 1 - i] = arrayBack[i];
+        }
+        System.out.println("Обратный порядок: " + Arrays.toString(newArray));
+    }
+    /*HomeWork-5*/
 }
