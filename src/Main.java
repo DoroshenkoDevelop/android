@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +12,61 @@ public class Main {
         arrayMaxMin();
         evenNotEven();
         arrayBack();
+        Random random = new Random();
+        int[] arrays = {7, -2, 6, -1, 4, -10};
+        int[] result = sort(arrays);
+        for (int number : result) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        int[] array = new int[10];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(10);
+        }
+        int[] res = sotArrayFunction(array);
     }
+
+    /*HomeWork-6*/
+/* 1) Отсортируйте массив, чтобы отрицательные числа находились перед
+положительными, *сохраняя порядок внутри каждой группы.*/
+    public static int[] sort(int[] array) {
+        int[] res = new int[array.length];
+        int index = 0;
+        for (int number : array) {
+            if (number < 0) {
+                res[index++] = number;
+            }
+        }
+        for (int number : array) {
+            if (number >= 0) {
+                res[index++] = number;
+            }
+        }
+        return res;
+    }
+
+    /* 2) Напишите функцию, которая сортирует массив по частоте появления элементов (по убыванию).
+    Если два элемента встречаются одинаковое количество раз, сортируйте их по возрастанию.*/
+    public static int[] sotArrayFunction(int[] arrayI) {
+
+            int[] array = new int[arrayI.length];
+            for (int i = 0; i < arrayI.length; i++) {
+                for (int j = i + 1; j < arrayI.length; j++) {
+                    if (array[arrayI[i]] < array[arrayI[j]] ||
+                            (array[arrayI[i]] == array[arrayI[j]] && arrayI[i] > arrayI[j])) {
+                        // Меняем местами элементы
+                        int temp = arrayI[i];
+                        arrayI[i] = arrayI[j];
+                        arrayI[j] = temp;
+                    }
+                }
+            }
+            System.out.println(Arrays.toString(arrayI));
+            return array;
+    }
+
+
+    /*HomeWork-6*/
     /*Вывод имени пользователя*/
     public static void helloWorld() {
         Scanner myScanner = new Scanner(System.in);
@@ -21,13 +76,13 @@ public class Main {
     }
 
     /*Напишите программу, которая выводит таблицу умножения для числа N, где N вводится с клавиатуры.*/
-    public static void sumOfNumbers () {
+    public static void sumOfNumbers() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter numbers: ");
         int num = scanner.nextInt();
         int secNum = 1;
-        while ((secNum) <= (num+1)){
-            System.out.println(num + " * " + secNum + " = " + num*secNum);
+        while ((secNum) <= (num + 1)) {
+            System.out.println(num + " * " + secNum + " = " + num * secNum);
             secNum++;
         }
     }
@@ -38,21 +93,21 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Points: ");
         int num = scanner.nextInt();
-        if(num >=90){
+        if (num >= 90) {
             System.out.println("Point : A");
-        } else if (num >= 75){
+        } else if (num >= 75) {
             System.out.println("Point : B");
-        } else if (num >= 50){
+        } else if (num >= 50) {
             System.out.println("Point : С");
-        } else if (num >= 30){
+        } else if (num >= 30) {
             System.out.println("Point : D");
-        } else if (num >= 0){
+        } else if (num >= 0) {
             System.out.println("Point : F");
         }
     }
 
-     /*Напишите программу, которая вычисляет периметр и площадь прямоугольника. Длина и ширина
-    прямоугольника вводятся с клавиатуры.*/
+    /*Напишите программу, которая вычисляет периметр и площадь прямоугольника. Длина и ширина
+   прямоугольника вводятся с клавиатуры.*/
     public static void rectangle() {
 
         Scanner in = new Scanner(System.in); // создаёт новый объект класса Scanner для чтения данных из консоли в Java.
@@ -102,8 +157,8 @@ public class Main {
 
     /*Lesson-5*/
     public static void arrayInt() {
-        int[] first =  new int[10];
-        int[] second =  new int[] {1, 2, 3, 4};
+        int[] first = new int[10];
+        int[] second = new int[]{1, 2, 3, 4};
     }
 
 
@@ -137,11 +192,11 @@ public class Main {
     /*1) Напишите программу, которая находит и выводит максимальное и минимальное
     значение в массиве целых чисел. Также вычислите индекс этих элементов.*/
     public static void arrayMaxMin() {
-        int[] array = new int[] {1, 2, 3, 4, 5, 6, 7, 8, -1};
-         int arrayMax = 0;
-         int arrayMin = 0;
-         int minIndex = 0;
-         int maxIndex = 0;
+        int[] array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, -1};
+        int arrayMax = 0;
+        int arrayMin = 0;
+        int minIndex = 0;
+        int maxIndex = 0;
 
         for (int i = 1; i < array.length; i++) {
             if (array[i] < arrayMin) {
@@ -156,28 +211,29 @@ public class Main {
         System.out.println("Число макс: " + arrayMax + ", индекс: " + minIndex);
         System.out.println("Число мин: " + arrayMin + ", индекс: " + maxIndex);
     }
+
     /*2) Напишите программу, которая принимает массив целых чисел и подсчитывает,
     сколько четных и сколько нечетных чисел в нем содержится.*/
     public static void evenNotEven() {
-       // Scanner scanner = new Scanner(System.in);
-        int[] arrays = new int[] {1, 2, 3, 4, 5};
+        // Scanner scanner = new Scanner(System.in);
+        int[] arrays = new int[]{1, 2, 3, 4, 5};
         int even = 0;
         int notEven = 0;
         for (int array : arrays) {
             if (array % 2 == 0) {
                 even++;
-            }
-            else {
+            } else {
                 notEven++;
             }
         }
         System.out.println("Четных: " + even);
         System.out.println("Не четных: " + notEven);
     }
+
     /*3) Напишите программу, которая принимает массив целых чисел и изменяет его порядок
     на обратный. Выведите результат после изменения порядка.*/
     public static void arrayBack() {
-        int[] arrayBack = new int[] {1, 2, 3, 4, 5};
+        int[] arrayBack = new int[]{1, 2, 3, 4, 5};
         int[] newArray = new int[arrayBack.length];
         for (int i = 0; i < arrayBack.length; i++) {
             newArray[arrayBack.length - 1 - i] = arrayBack[i];
@@ -186,3 +242,5 @@ public class Main {
     }
     /*HomeWork-5*/
 }
+
+
