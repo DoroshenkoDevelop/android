@@ -1,9 +1,27 @@
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        //  Задание 1: Магазин товаров
+        // Создаем список товаров
+        List<Product> products = new ArrayList<>();
+
+        // Добавляем товары в список
+        products.add(new Electronics("Смартфон", 50000));
+        products.add(new Clothing("Куртка", 10000));
+        products.add(new Food("Хлеб", 50));
+
+        // Выводим финальные цены товаров
+        for (Product product : products) {
+            System.out.println(product);
+        }
+        //  Задание 1: Магазин товаров
+        Person person = new Person("Pasha",35); // экземпляр класса объект
+       // person.getAge();
         points();
         helloWorld();
         rectangle();
@@ -241,6 +259,33 @@ public class Main {
         System.out.println("Обратный порядок: " + Arrays.toString(newArray));
     }
     /*HomeWork-5*/
+
+
+    /*Задача 2: Использование перечислений (enum)*/
+    /*HomeWork-7*/
+    public enum Month {
+        JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE,
+        JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER;
+
+        // Метод для определения зимних месяцев
+        public boolean isWinter() {
+            return this == DECEMBER || this == JANUARY || this == FEBRUARY;
+        }
+
+        // Пример использования
+        public static void main(String[] args) {
+            Month month1 = Month.DECEMBER;
+            Month month2 = Month.MARCH;
+
+            System.out.println(month1 + " зимний месяц? " + month1.isWinter()); // true
+            System.out.println(month2 + " зимний месяц? " + month2.isWinter()); // false
+        }
+    }
+
+
+
+
+
 }
 
 
