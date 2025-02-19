@@ -1,3 +1,5 @@
+package lesson8;
+
 public class Food implements Product {
     private String name;
     private double price;
@@ -15,6 +17,6 @@ public class Food implements Product {
 
     @Override
     public String toString() {
-        return "Food: " + name + ", Final Price: " + getFinalPrice();
+        return "lesson8.Food: " + name + ", Final Price: " + getFinalPrice();
     }
 }

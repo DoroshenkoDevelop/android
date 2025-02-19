@@ -1,3 +1,5 @@
+package lesson8;
+
 public class Person {
 
     private String name; // свойства класса доступны только экземпляру класса.

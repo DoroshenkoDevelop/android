@@ -1,3 +1,5 @@
+package lesson8;
+
 /*Задача 1: Работа с классами и методами*/
 /*HomeWork-7*/
 public class Book {
